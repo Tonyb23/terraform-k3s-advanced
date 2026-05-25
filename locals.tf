@@ -13,5 +13,6 @@ locals {
         Project     = var.project_name
         Environment = terraform.workspace
         ManagedBy   = "Terraform"
+        UpdatedBy   = "GitHubActions"
     }
 }
