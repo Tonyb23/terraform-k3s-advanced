@@ -16,7 +16,7 @@ terraform {
     bucket = "terraform-state-tonyb"
     key = "terraform-k3s/terraform.tfstate"
     region = "us-east-1"
-    dynamodb_table = "terraform-state-locks"
+    use_lockfile = true # Enable state locking to prevent concurrent modifications/ replaces dynamoDB tablelocking
     encrypt = true
   }
 }
