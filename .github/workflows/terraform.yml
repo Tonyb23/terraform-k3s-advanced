@@ -31,9 +31,11 @@ jobs:
           aws-region:            ${{ env.AWS_REGION }}
 
       - name: Reconstruct dev.tfvars
+        env:
+          DEV_TFVARS: ${{ secrets.DEV_TFVARS }}
         run: |
           mkdir -p environments
-          echo "${{ secrets.DEV_TFVARS }}" > environments/dev.tfvars
+          printf '%s\n' "$DEV_TFVARS" > environments/dev.tfvars
 
       - name: Terraform Init
         run: terraform init
@@ -72,9 +74,11 @@ jobs:
           aws-region:            ${{ env.AWS_REGION }}
 
       - name: Reconstruct prod.tfvars
+        env:
+          PROD_TFVARS: ${{ secrets.PROD_TFVARS }}
         run: |
           mkdir -p environments
-          echo "${{ secrets.PROD_TFVARS }}" > environments/prod.tfvars
+          printf '%s\n' "$PROD_TFVARS" > environments/prod.tfvars
 
       - name: Terraform Init
         run: terraform init
