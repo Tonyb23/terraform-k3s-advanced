@@ -33,7 +33,7 @@ jobs:
       - name: Reconstruct dev.tfvars
         run: |
           mkdir -p environments
-          cho "${{ secrets.DEV_TFVARS }}" > environments/dev.tfvars
+          echo "${{ secrets.DEV_TFVARS }}" > environments/dev.tfvars
 
       - name: Terraform Init
         run: terraform init
