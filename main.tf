@@ -2,8 +2,8 @@
 # Tell Terraform which provider to use and what version.
 # The AWS provider is the plugin that lets Terraform talk to AWS. 
 terraform {
-  required_version = "~> 1.11.0"
-  
+  required_version = "~> 1.0"
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
